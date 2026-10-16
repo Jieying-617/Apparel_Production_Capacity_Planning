@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Apparel Capacity & Bottleneck Planner
 
-## Getting Started
+A professional, real-time factory capacity and bottleneck simulation web application built with **Next.js (App Router)** and **Supabase (PostgreSQL)**. Designed for apparel manufacturing operations to simulate rolling 4-week horizons, track department loads (**Cut, Sew, Finish, and Pack**), and manage dynamic loss-rate multipliers.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌟 Key Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Configured Production Lines (Page 1)**:
+   - Full CRUD management for factory production lines.
+   - Apparel category mapping (`Hoodie`, `Jacket`, `Pants`, `T-Shirt`, `Activewear`).
+   - Operational state control: Toggle between **Active** and **Disabled**, or delete obsolete lines while preserving historical audit trails.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. **Order Management & Input (Page 2)**:
+   - Captures core order attributes: Style Name, Apparel Category, Total Units, and Shipment Date Window.
+   - Real-time reactive tables displaying active production demand.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. **Rolling 4-Week Horizon Dashboard & Simulation (Page 3)**:
+   - Multi-parameter simulation panel allocating orders to specific lines and target weeks (Week 1 to 4).
+   - **Dynamic Calculation**: Automatically applies global loss-rate multipliers (Cut, Sew, Finish, Pack) and weekly operating days.
+   - **Bottleneck Detection**: Instantaneous visual indicators (`Available` vs. `FULL` $\ge$100% capacity in red).
+   - **Composite Filtering**: Dedicated storage table with multi-criteria filters (Filter by Line and Filter by Week).
+   - **Disabled Line Awareness**: Clear visual warning tags (`[Disabled Line]` with dashed borders) for inactive lines still carrying historical loads.
 
-## Learn More
+4. **Global Simulation Parameters (Settings)**:
+   - Centered UI configuration panel for adjusting factory-wide loss rates and weekly working days with instant horizon recalculation.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* **Frontend**: Next.js App Router, React, Tailwind CSS
+* **Backend & Database**: Supabase (PostgreSQL with Row-Level Security)
+* **Deployment**: Render
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Getting Started Locally
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Clone the repository**:
+   ```bash
+   git clone [https://github.com/Jieying-617/Apparel_Production_Capacity_Planning.git](https://github.com/Jieying-617/Apparel_Production_Capacity_Planning.git)
+   cd apparel-capacity-planner
